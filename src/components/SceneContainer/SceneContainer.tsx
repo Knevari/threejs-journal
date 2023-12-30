@@ -12,13 +12,20 @@ export function SceneContainer({
   ...props
 }: SceneContainerProps) {
   return (
-    <div
-      className={cn("bg-neutral-400/20 rounded-2xl h-[500px] mt-8", className)}
-      {...props}
-    >
-      {children}
+    <div>
+      <div
+        className={cn(
+          "bg-neutral-400/20 rounded-2xl h-[500px] mt-8 shadow-xl",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
       {legend && (
-        <small className="block mt-1 text-gray-300 text-xs">{legend}</small>
+        <small className="block mt-1 text-center text-gray-300 text-xs">
+          {legend}
+        </small>
       )}
     </div>
   );
