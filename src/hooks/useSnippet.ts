@@ -13,7 +13,7 @@ export default function useSnippet(category: string, id: string) {
     loadSnippet()
       .then((snippet) => setSnippet(snippet))
       .catch((err) => console.log({ err }));
-  }, [category, id]);
+  }, [category, id, loadSnippet]);
 
   return snippet;
 }
