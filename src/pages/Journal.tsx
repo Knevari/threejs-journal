@@ -1,16 +1,12 @@
-import { Code } from "@/components/Code";
-import { Container } from "@/components/Container";
+import { Link } from "react-router-dom";
 import { SceneContainer } from "@/components/SceneContainer";
 import { Title, Subtitle, Text } from "@/components/Typography";
 
 import Cubes from "@/examples/scenes/Cubes";
 
-import useSnippet from "@/hooks/useSnippet";
-
 export default function Journal() {
-  const geometryCode = useSnippet("geometries", "1-1");
   return (
-    <Container>
+    <>
       <Title>ThreeJS Journal</Title>
       <Subtitle className="mt-2">
         Trying to understand things a bit better
@@ -31,16 +27,10 @@ export default function Journal() {
         ThreeJS and React Three Fiber (R3F).
       </Text>
       <Subtitle className="font-bold mt-8">Summary so far</Subtitle>
-      <ul className="mt-4">
-        <li>
-          <a href="#journey">1 - ThreeJS Journey</a>
-        </li>
-        <li>
-          <a href="#geometries">2 - Geometries</a>
-        </li>
-        <li>
-          <a href="#refs-&-links">3 - References & Links</a>
-        </li>
+
+      <ul className="mt-4 flex flex-col">
+        <Link to="/geometries">1 - Geometries</Link>
+        <Link to="/examples"># - Examples</Link>
       </ul>
 
       <div className="mt-8" id="journey">
@@ -60,23 +50,6 @@ export default function Journal() {
         </Text>
         {/* I can use THREE.MathUtils.randFloatSpread(n) to get a random number
           between -n / 2 and n / 2 */}
-      </div>
-
-      <div className="mt-8" id="geometries">
-        <Subtitle>Geometries</Subtitle>
-        <Text className="mt-4">
-          ThreeJS has a huge number of primitives that may be used to define
-          different kinds of objects in your scene. Geometries are used to
-          create shapes like cubes, spheres, cilinders, planes, etc... Each
-          different geometry in your scene may have a varying number of faces
-          and vertices, for example, cubes have 8 verticles and 6 faces.
-        </Text>
-        <Text className="mt-4">
-          The library itself gives us a few default geometries to play around
-          and experiment, <b>e.g.</b> CubeGeometry, SphereGeometry,
-          TorusGeometry, TorusKnotGeometry, etc...
-        </Text>
-        <Code className="mt-4">{geometryCode}</Code>
       </div>
 
       <div className="mt-8" id="refs-&-links">
@@ -104,6 +77,6 @@ export default function Journal() {
           </li>
         </ul>
       </div>
-    </Container>
+    </>
   );
 }
